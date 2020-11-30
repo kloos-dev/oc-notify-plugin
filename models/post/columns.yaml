@@ -3,6 +3,14 @@
 # ===================================
 
 columns:
-    id:
-        label: ID
-        searchable: true
+    created_at:
+        label: Created at
+        type: datetime
+
+    published_at:
+        label: Published at
+        type: datetime
+
+    title:
+        label: Title
+        type: text

@@ -20,8 +20,11 @@ class CreatePostsTable extends Migration
             $table->string('author')->nullable();
             $table->integer('user_id')->nullable();
 
-            $table->text('extras');
+            $table->tinyInteger('is_published')->default(1);
 
+            $table->text('extras')->nullable();
+
+            $table->timestamp('published_at')->nullable();
             $table->timestamps();
         });
     }

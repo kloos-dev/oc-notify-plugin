@@ -50,10 +50,8 @@ class Plugin extends PluginBase
      */
     public function registerComponents()
     {
-        return []; // Remove this line to activate
-
         return [
-            'Kloos\Notify\Components\MyComponent' => 'myComponent',
+            'Kloos\Notify\Components\Posts' => 'Posts',
         ];
     }
 
@@ -81,15 +79,20 @@ class Plugin extends PluginBase
      */
     public function registerNavigation()
     {
-        return []; // Remove this line to activate
-
         return [
             'notify' => [
                 'label'       => 'Notify',
-                'url'         => Backend::url('kloos/notify/mycontroller'),
-                'icon'        => 'icon-leaf',
+                'url'         => Backend::url('kloos/notify/posts'),
+                'icon'        => 'icon-newspaper-o',
                 'permissions' => ['kloos.notify.*'],
                 'order'       => 500,
+                'sideMenu'    => [
+                    [
+                        'label'     => 'Posts',
+                        'url'       => Backend::url('kloos/notify/posts'),
+                        'icon'      => 'icon-newspaper-o',
+                    ]
+                ]
             ],
         ];
     }

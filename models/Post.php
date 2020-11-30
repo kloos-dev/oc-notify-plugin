@@ -68,4 +68,8 @@ class Post extends Model
             'name' => 'taggable',
         ],
     ];
+
+    public $attachOne = [
+        'image' => 'System\Models\File',
+    ];
 }

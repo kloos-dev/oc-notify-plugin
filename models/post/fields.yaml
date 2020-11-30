@@ -3,6 +3,44 @@
 # ===================================
 
 fields:
-    id:
-        label: ID
-        disabled: true
+  title:
+    label: Title
+    span: left
+    type: text
+  subtitle:
+    label: Subtitle
+    span: right
+    type: text
+  text:
+    label: Text
+    span: full
+    type: richeditor
+  tags:
+    label: Tags
+    span: full
+    type: taglist
+    mode: relation
+    nameFrom: name
+
+secondaryTabs:
+  fields:
+    is_published:
+      label: Is published
+      type: checkbox
+      default: 1
+      commentAbove: Is this post published?
+      span: full
+    published_at:
+      label: Published at
+      type: datepicker
+      default: now
+      span: full
+    author:
+      label: Author
+      span: full
+      type: text
+    image:
+      label: Image
+      span: full
+      type: fileupload
+      mode: image
