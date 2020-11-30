@@ -2,6 +2,8 @@
 
 use Model;
 use Kloos\Toolbox\Models\Tag;
+use October\Rain\Database\Builder;
+use Kloos\Toolbox\Classes\Behavior\HasTags;
 
 /**
  * Post Model
@@ -9,6 +11,10 @@ use Kloos\Toolbox\Models\Tag;
 class Post extends Model
 {
     use \October\Rain\Database\Traits\Validation;
+
+    public $implement = [
+        HasTags::class,
+    ];
 
     /**
      * @var string The database table used by the model.
@@ -55,7 +61,8 @@ class Post extends Model
      */
     protected $dates = [
         'created_at',
-        'updated_at'
+        'updated_at',
+        'published_at',
     ];
 
     /**
@@ -72,4 +79,13 @@ class Post extends Model
     public $attachOne = [
         'image' => 'System\Models\File',
     ];
+
+    public function __construct(array $attributes = [])
+    {
+        parent::__construct($attributes);
+
+        static::addGlobalScope('orderByPublishedAt', function (Builder $builder) {
+            $builder->orderBy('published_at', 'asc');
+        });
+    }
 }

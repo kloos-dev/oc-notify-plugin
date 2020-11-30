@@ -1,6 +1,7 @@
 <?php namespace Kloos\Notify\Components;
 
 use Kloos\Notify\Models\Post;
+use Kloos\Toolbox\Models\Tag;
 use Cms\Classes\ComponentBase;
 
 class Posts extends ComponentBase
@@ -15,7 +16,19 @@ class Posts extends ComponentBase
 
     public function defineProperties()
     {
-        return [];
+        $options = Tag::all()
+            ->pluck('name', 'id')
+            ->toArray();
+
+        return [
+            'tag' => [
+                'title'             => 'Tag',
+                'description'       => 'Only show posts with this tag',
+                'type'              => 'dropdown',
+                'options'           => $options,
+                'emptyOption'       => 'Empty option',
+            ]
+        ];
     }
 
     public function prepareVars()
@@ -25,9 +38,17 @@ class Posts extends ComponentBase
     public function get($id = null)
     {
         $this->prepareVars();
-
         if (!$id) {
-            return Post::all();
+            if ($this->property('tag')) {
+                // Filter to only show posts with this tag
+                $post = Post::first();   // Todo: Need to make a better way for reverse automatic relations
+
+                $tag = Tag::find($this->property('tag'));
+                return $tag->posts;
+            }
+
+            return Post::where('is_published', true)
+                ->get();
         }
 
         return Post::find($id);

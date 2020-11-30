@@ -30,7 +30,6 @@ class Plugin extends PluginBase
      */
     public function register()
     {
-
     }
 
     /**
@@ -40,7 +39,6 @@ class Plugin extends PluginBase
      */
     public function boot()
     {
-
     }
 
     /**
