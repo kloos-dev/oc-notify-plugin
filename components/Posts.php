@@ -44,6 +44,11 @@ class Posts extends ComponentBase
                 $post = Post::first();   // Todo: Need to make a better way for reverse automatic relations
 
                 $tag = Tag::byCode($this->property('tag'));
+
+                if (!$tag) {
+                    return collect([]);
+                }
+
                 return $tag->posts;
             }
 
