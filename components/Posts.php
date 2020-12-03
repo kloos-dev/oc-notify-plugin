@@ -17,7 +17,7 @@ class Posts extends ComponentBase
     public function defineProperties()
     {
         $options = Tag::all()
-            ->pluck('name', 'id')
+            ->pluck('name', 'code')
             ->toArray();
 
         return [
@@ -43,7 +43,7 @@ class Posts extends ComponentBase
                 // Filter to only show posts with this tag
                 $post = Post::first();   // Todo: Need to make a better way for reverse automatic relations
 
-                $tag = Tag::find($this->property('tag'));
+                $tag = Tag::byCode($this->property('tag'));
                 return $tag->posts;
             }
 
