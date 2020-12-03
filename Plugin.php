@@ -49,6 +49,8 @@ class Plugin extends PluginBase
     public function registerComponents()
     {
         return [
+            'Kloos\Notify\Components\Post' => 'Post',
+
             'Kloos\Notify\Components\Posts' => 'Posts',
         ];
     }
