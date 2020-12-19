@@ -65,6 +65,10 @@ class Post extends Model
         'published_at',
     ];
 
+    protected $with = [
+        'image',
+    ];
+
     /**
      * @var array Morph to many relations
      */

@@ -1,0 +1,43 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+  title:
+    label: Title
+    span: left
+    type: text
+  subtitle:
+    label: Subtitle
+    span: right
+    type: text
+  text:
+    label: Text
+    span: full
+    type: richeditor
+  tags:
+    label: Tags
+    span: full
+    type: taglist
+    mode: relation
+    nameFrom: name
+  is_published:
+    label: Is published
+    type: checkbox
+    default: 1
+    commentAbove: Is this post published?
+    span: left
+  published_at:
+    label: Published at
+    type: datepicker
+    default: now
+    span: left
+  author:
+    label: Author
+    span: right
+    type: text
+  image:
+    label: Image
+    span: full
+    type: fileupload
+    mode: image
