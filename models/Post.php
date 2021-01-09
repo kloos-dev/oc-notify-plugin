@@ -92,4 +92,10 @@ class Post extends Model
             $builder->orderBy('published_at', 'asc');
         });
     }
+
+    public function scopeActive(Builder $builder)
+    {
+        $now = \Carbon\Carbon::now();
+        return $builder->where('is_published', 1)->where('published_at', '<=', $now);
+    }
 }
