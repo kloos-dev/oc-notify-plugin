@@ -4,40 +4,47 @@
 
 fields:
   title:
-    label: Title
+    label: kloos.notify::lang.field.title
     span: left
     type: text
   subtitle:
-    label: Subtitle
+    label: kloos.notify::lang.field.subtitle
     span: right
     type: text
   text:
-    label: Text
+    label: kloos.notify::lang.field.text
     span: full
     type: richeditor
   tags:
-    label: Tags
+    label: kloos.notify::lang.field.tags
     span: full
     type: taglist
     mode: relation
     nameFrom: name
   is_published:
-    label: Is published
+    label: kloos.notify::lang.field.is_published
     type: checkbox
     default: 1
-    commentAbove: Is this post published?
+    commentAbove: kloos.notify::lang.field.is_published_comment
     span: left
+  send_pushnotification:
+    label: kloos.notify::lang.field.send_pushnotification
+    type: checkbox
+    default: 0
+    commentAbove: kloos.notify::lang.field.send_pushnotification_comment
+    span: right
   published_at:
-    label: Published at
+    label: kloos.notify::lang.field.published_at
     type: datepicker
     default: now
     span: left
   author:
-    label: Author
+    label: kloos.notify::lang.field.author
     span: right
     type: text
   image:
-    label: Image
+    label: kloos.notify::lang.field.image
     span: full
     type: fileupload
     mode: image
+    useCaption: false
