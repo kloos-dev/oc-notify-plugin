@@ -32,6 +32,8 @@ fields:
     type: checkbox
     default: 0
     commentAbove: kloos.notify::lang.field.send_pushnotification_comment
+    context:
+      - update
     span: right
   published_at:
     label: kloos.notify::lang.field.published_at
