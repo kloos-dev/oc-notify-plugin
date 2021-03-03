@@ -1,8 +1,8 @@
 <?php namespace Kloos\Notify\Components;
 
 use Kloos\Notify\Models\Post;
-use Kloos\Toolbox\Models\Tag;
 use Cms\Classes\ComponentBase;
+use Codecycler\Toolbox\Models\Tag;
 
 class Posts extends ComponentBase
 {

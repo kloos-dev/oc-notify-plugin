@@ -1,9 +1,9 @@
 <?php namespace Kloos\Notify\Models;
 
 use Model;
-use Kloos\Toolbox\Models\Tag;
+use Codecycler\Toolbox\Models\Tag;
 use October\Rain\Database\Builder;
-use Kloos\Toolbox\Classes\Behavior\HasTags;
+use Codecycler\Toolbox\Classes\Behavior\HasTags;
 
 /**
  * Post Model
